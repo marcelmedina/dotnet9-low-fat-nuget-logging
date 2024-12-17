@@ -1,0 +1,11 @@
+@LowFatValidation_HostAddress = https://localhost:7127
+
+POST {{LowFatValidation_HostAddress}}/api/LowFatCustomer
+Accept: application/json
+Content-Type: application/json
+
+{
+	"firstName":"John",
+	"lastName":"Smith",
+	"age": 18
+}
