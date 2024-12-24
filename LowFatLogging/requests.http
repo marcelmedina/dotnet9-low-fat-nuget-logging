@@ -9,3 +9,17 @@ Content-Type: application/json
 	"lastName":"Smith",
 	"age": 18
 }
+
+###
+
+POST {{LowFatValidation_HostAddress}}/api/FatCustomer
+Accept: application/json
+Content-Type: application/json
+
+{
+	"firstName":"John",
+	"lastName":"Smith",
+	"age": 18
+}
+
+###

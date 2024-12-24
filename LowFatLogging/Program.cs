@@ -1,6 +1,14 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 
@@ -10,7 +18,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddProblemDetails();
 
 // Add OpenTelemetry and configure it to use Azure Monitor.
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
+//builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -19,6 +27,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseSerilogRequestLogging(); // Enable Serilog request logging
 
 app.UseHttpsRedirection();
 

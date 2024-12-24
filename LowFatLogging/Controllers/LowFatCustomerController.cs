@@ -1,5 +1,4 @@
 ﻿using LowFatLogging.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LowFatLogging.Controllers
